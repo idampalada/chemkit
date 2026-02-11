@@ -203,22 +203,13 @@ export default function ProdukPage() {
 
           <button
             onClick={prev}
-            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 
-             bg-white text-black rounded-full 
-             w-10 h-10 md:w-12 md:h-12
-             flex items-center justify-center 
-             shadow-lg z-50"
+            className="absolute left-6 text-white text-4xl"
           >
             ‹
           </button>
-
           <button
             onClick={next}
-            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 
-             bg-white text-black rounded-full 
-             w-10 h-10 md:w-12 md:h-12
-             flex items-center justify-center 
-             shadow-lg z-50"
+            className="absolute right-6 text-white text-4xl"
           >
             ›
           </button>
