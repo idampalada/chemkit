@@ -100,10 +100,36 @@ export default function ProdukPage() {
   const [open, setOpen] = useState(false);
   const [slide, setSlide] = useState(0);
   const [activeSlides, setActiveSlides] = useState<string[]>([]);
+  // ================= SWIPE STATE =================
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
 
   const next = () => setSlide((s) => (s + 1) % activeSlides.length);
   const prev = () =>
     setSlide((s) => (s === 0 ? activeSlides.length - 1 : s - 1));
+
+  // ================= SWIPE FUNCTION =================
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+
+    if (distance > minSwipeDistance) {
+      next();
+    } else if (distance < -minSwipeDistance) {
+      prev();
+    }
+  };
 
   useEffect(() => {
     if (!open) return;
