@@ -194,22 +194,26 @@ export default function ProdukPage() {
       {/* ================= MODAL ================= */}
       {open && (
         <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center">
+          {/* CLOSE BUTTON */}
           <button
             onClick={() => setOpen(false)}
-            className="absolute top-6 right-6 text-white text-3xl"
+            className="absolute top-6 right-6 z-[10000] text-white text-3xl"
           >
             ✕
           </button>
 
+          {/* ARROW LEFT - desktop only */}
           <button
             onClick={prev}
-            className="absolute left-6 text-white text-4xl"
+            className="hidden md:block absolute left-6 top-1/2 -translate-y-1/2 text-white text-4xl"
           >
             ‹
           </button>
+
+          {/* ARROW RIGHT - desktop only */}
           <button
             onClick={next}
-            className="absolute right-6 text-white text-4xl"
+            className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 text-white text-4xl"
           >
             ›
           </button>
