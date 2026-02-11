@@ -203,18 +203,32 @@ export default function ProdukPage() {
 
           <button
             onClick={prev}
-            className="absolute left-6 text-white text-4xl"
+            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 
+             bg-white text-black rounded-full 
+             w-10 h-10 md:w-12 md:h-12
+             flex items-center justify-center 
+             shadow-lg z-50"
           >
             ‹
           </button>
+
           <button
             onClick={next}
-            className="absolute right-6 text-white text-4xl"
+            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 
+             bg-white text-black rounded-full 
+             w-10 h-10 md:w-12 md:h-12
+             flex items-center justify-center 
+             shadow-lg z-50"
           >
             ›
           </button>
 
-          <div className="relative w-[90vw] h-[85vh]">
+          <div
+            className="relative w-[90vw] h-[85vh] touch-pan-y"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
             <Image
               src={activeSlides[slide]}
               alt="Preview Produk"
